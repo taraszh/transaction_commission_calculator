@@ -37,6 +37,7 @@ php app.php input.txt
    
 ### Run tests:
 ```sh
+cd ..
 vendor/bin/phpunit tests
 ```
 ----------------------------------------------------------------
