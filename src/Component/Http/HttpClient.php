@@ -15,7 +15,7 @@ class HttpClient
     }
 
     /**
-     * @return Response|string Disclaimer: this is just a dummy implementation
+     * @return Response|string Disclaimer: this is just a dummy implementation not required for this exercise
      * @throws HttpException|Exception
      */
     public function get(string $url, array $options = []): Response|string

@@ -5,7 +5,7 @@ namespace App\Service\Bin;
 use App\Component\Http\HttpClient;
 use App\Config\Config;
 use App\DTO\BinDataDto;
-use HttpException;
+use App\Exception\TransactionCommissionGeneralException;
 
 class BinListService implements BinProviderServiceInterface
 {
@@ -19,22 +19,26 @@ class BinListService implements BinProviderServiceInterface
     public function getBinData($bin): BinDataDto
     {
         $response = $this->httpClient->get($this->config['url'] . $bin);
-//        var_dump($response);
-        // TODO: Implement validateResponse() method.
+
+        $this->validateResponse($response);
 
         $response = $this->getResponseContent($response);
-//        var_dump('===========================');
-//
-//        var_dump($response);
-//        var_dump('===========================');
-//die;
+
         return BinDataDto::create($response['country']['alpha2']);
     }
 
     private function getResponseContent($response): array
     {
-        // ...
+        $responseContent = json_decode($response, true);
 
-       return  json_decode($response, true);
+        if (empty($responseContent['country']['alpha2'])) {
+            throw new TransactionCommissionGeneralException('Unknown response structure from ' . Config::BINLIST_PROVIDER);
+        }
+
+        return $responseContent;
+    }
+
+    private function validateResponse($response)
+    {
     }
 }

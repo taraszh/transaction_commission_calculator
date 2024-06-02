@@ -27,8 +27,7 @@ readonly class TransactionCommissionService
             foreach ($transactions as $transaction) {
                 $result[] = $this->getTransactionCommission($transaction);
 
-                print end($result) . "\n";
-                sleep(3); // Let's give our third-party API servers a break.
+                print end($result) . PHP_EOL;
             }
         } catch (Exception|TransactionCommissionGeneralException $e) {
             // Log the exception (a proper logging system should be used in real application)

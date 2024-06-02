@@ -4,9 +4,6 @@ namespace App\Service\RateExchange;
 
 use App\Component\Http\HttpClient;
 use App\Config\Config;
-use App\DTO\BinDataDto;
-use App\DTO\TransactionDto;
-use HttpException;
 
 class ExchangeRateService implements RateExchangeServiceInterface
 {
@@ -23,7 +20,8 @@ class ExchangeRateService implements RateExchangeServiceInterface
         // Authentication required.
         // $response = $this->httpClient->get($this->config['url']);
 
-        // TODO: Implement validateResponse() method.
+       //  $this->validateResponse($response);
+
         // $responseContent = $this->getResponseContent($response);
         // return $responseContent['rates'][$currency];
 
@@ -35,5 +33,9 @@ class ExchangeRateService implements RateExchangeServiceInterface
         // ...
 
        return  json_decode($response, true);
+    }
+
+    private function validateResponse($response)
+    {
     }
 }
