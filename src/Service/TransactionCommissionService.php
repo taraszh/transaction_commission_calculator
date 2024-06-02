@@ -67,7 +67,7 @@ readonly class TransactionCommissionService
         $currency = $transaction->currency;
         $amount = $transaction->amount;
 
-        $amountFixed = $currency === 'EUR' || $rate === 0 ? $amount : $amount / $rate;
+        $amountFixed = $currency === 'EUR' || $rate == 0 ? $amount : $amount / $rate;
         $amount = $amountFixed * ($isEu ? 0.01 : 0.02);
 
         return $this->ceilToCents($amount);
