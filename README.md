@@ -16,12 +16,15 @@ The **Transaction Commission Calculator** project is responsible for processing 
 
 ### Installation
 
-**Clone the Repository**:
-   - Clone the project repository to your local machine.
+- Clone the project repository to your local machine and change directory.
 
 ```sh
 git clone https://github.com/taraszh/transaction_commission_calculator.git
 cd transaction_commission_calculator
+```
+
+- Install dependencies.
+```sh
 composer install
 ```
 
@@ -30,7 +33,6 @@ composer install
 To calculate commissions, run the following commands:
 
 ```sh
-composer install
 cd client_code
 php app.php input.txt
 ```
