@@ -5,7 +5,7 @@ namespace App\Service;
 use App\Component\Utils\Country;
 use App\DTO\TransactionDto;
 use App\Exception\TransactionCommissionGeneralException;
-use App\Service\Bin\BinProviderServiceInterface;
+use App\Service\Bin\BinServiceInterface;
 use App\Service\RateExchange\RateExchangeServiceInterface;
 use Exception;
 
@@ -14,7 +14,7 @@ readonly class TransactionCommissionService
 
     public function __construct(
         private string                       $filename,
-        private BinProviderServiceInterface  $binService,
+        private BinServiceInterface          $binService,
         private RateExchangeServiceInterface $rateExchangeService
     ) {
     }

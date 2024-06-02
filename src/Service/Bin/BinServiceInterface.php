@@ -4,7 +4,7 @@ namespace App\Service\Bin;
 
 use App\DTO\BinDataDto;
 
-interface BinProviderServiceInterface
+interface BinServiceInterface
 {
     public function getBinData($bin): BinDataDto;
 }

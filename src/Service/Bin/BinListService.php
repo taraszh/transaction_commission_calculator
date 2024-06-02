@@ -7,7 +7,7 @@ use App\Config\Config;
 use App\DTO\BinDataDto;
 use App\Exception\TransactionCommissionGeneralException;
 
-class BinListService implements BinProviderServiceInterface
+class BinListService implements BinServiceInterface
 {
     private array $config;
 

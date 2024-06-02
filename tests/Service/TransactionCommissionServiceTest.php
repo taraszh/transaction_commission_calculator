@@ -3,7 +3,7 @@
 namespace App\Tests\Service;
 
 use App\DTO\BinDataDto;
-use App\Service\Bin\BinProviderServiceInterface;
+use App\Service\Bin\BinServiceInterface;
 use App\Service\RateExchange\RateExchangeServiceInterface;
 use App\Service\TransactionCommissionService;
 use Exception;
@@ -12,7 +12,7 @@ use PHPUnit\Framework\TestCase;
 class TransactionCommissionServiceTest extends TestCase
 {
     private string                       $filename;
-    private BinProviderServiceInterface  $binService;
+    private BinServiceInterface          $binService;
     private RateExchangeServiceInterface $rateExchangeService;
     private TransactionCommissionService $service;
 
@@ -23,7 +23,7 @@ class TransactionCommissionServiceTest extends TestCase
             ['bin' => '45717360', 'amount' => 100.00, 'currency' => 'EUR']
         ));
 
-        $this->binService = $this->createMock(BinProviderServiceInterface::class);
+        $this->binService = $this->createMock(BinServiceInterface::class);
         $this->rateExchangeService = $this->createMock(RateExchangeServiceInterface::class);
 
         $this->service = new TransactionCommissionService(
